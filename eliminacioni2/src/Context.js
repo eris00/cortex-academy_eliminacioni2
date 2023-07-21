@@ -24,19 +24,66 @@ const ProductProvider = ({ children }) => {
         getItems();
       }, []);
 
-    //   logovanje itema
-    useEffect(() => {
-        console.log(items);
-    }, [items]);
+    // //   logovanje itema
+    // useEffect(() = > {
+    //     console.log(items);
+    // }, [items]);
 
     // CRUD funkcije
 
     const addItem = (product) => {
-        setItems([...items, product]);
+        fetch(`${BASE_URL}/products/add`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(product),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Ovdje možete dodati kod za ažuriranje items u centralnom store-u nakon što se proizvod doda na server
+            console.log("Proizvod uspješno dodan:", data);
+            setItems([...items, product]);
+          })
+          .catch((error) => {
+            console.error("Greška pri dodavanju proizvoda:", error);
+          });
       };
 
+    const deleteItem = async (id) => {
+    try {
+        const response = await fetch(`${BASE_URL}/products/${id}`, {
+        method: "DELETE",
+        });
+        const data = await response.json();
+        console.log("Deleted item ID:", data.id);
+        // Ažuriranje state-a nakon brisanja proizvoda, na primer:
+        setItems(items.filter(item => item.id !== id));
+    } catch (error) {
+        console.error('Error deleting product:', error);
+    }
+    }
+
+    const editItem = (productId, newData) => {
+        fetch(`${BASE_URL}/products/${productId}`, {
+            method: 'PUT', 
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newData)
+        })
+        .then(res => res.json())
+        .then((data)  => {
+            // Ovde možete ažurirati items u centralnom store-u sa novim podacima proizvoda
+            // Na primer, možete kreirati novu listu items sa ažuriranim proizvodom i postaviti je u state
+            const updatedItems = items.map(item => {
+                if (item.id === productId) {
+                    return { ...item, ...newData };
+                }
+                return item;
+            });
+            setItems(updatedItems);
+        });
+    };
+
     return (
-        <ProductContext.Provider value={{ items, addItem }}>
+        <ProductContext.Provider value={{ items, setItems, addItem, deleteItem, editItem }}>
             {children}
         </ProductContext.Provider>
     );

@@ -2,19 +2,20 @@ import logo from './logo.svg';
 import React, { useContext, useState, useEffect } from "react";
 import './App.css';
 import { ProductProvider } from "./Context";
-import TestComp from './Component/TestComp';
+import Main from './Component/Main';
+// import AddProductForm from './Component/AddProductForm';
 
 function App() {
-
-
+ 
 
   return (
 
     <ProductProvider>
 
-        <TestComp />
+        <Main />
 
     </ProductProvider>
+
 
   );
 }
