@@ -1,6 +1,6 @@
 import React, { useState, useContext  } from 'react';
 import { ProductContext } from '../Context'
-
+import {Link} from 'react-router-dom'
 
   function AddProductForm () {
 
@@ -27,16 +27,26 @@ import { ProductContext } from '../Context'
     const handleSubmit = (e) => {
       e.preventDefault();
       addItem(formData);
-      // Ovdje možete dodati i dodatne radnje nakon što je proizvod dodan, kao što je resetovanje forme, prikazivanje poruke o uspjehu, itd.
-      // setItems(formData)
-      console.log("ispod ovoga formData:");
-      console.log(formData);
+      setFormData({brand: '',
+      category: '',
+      description: '',
+      discountPercentage: 0,
+      images: [],
+      price: 0,
+      rating: 0,
+      stock: 0,
+      thumbnail: '',
+      title: ''})
     };
 
 
   return (
 
     <> 
+
+    
+    <Link to="/">Go back</Link>
+
     <h2>Add product</h2>
     <form onSubmit={handleSubmit}>
       <input
