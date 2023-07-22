@@ -1,9 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-function Item({ product }) {
+function Item({ product, deleteItem }) {
 
-    const {id, title, price, description, images, deleteItem, editItem } = product;
+    const {id, title, price, description, images } = product;
 
     return (
         <div className="product-item">
@@ -13,7 +13,7 @@ function Item({ product }) {
             <p>Description: {description}</p>
             <img src={images} />
             <Link to={`/product/${product.id}`}>View Details</Link>
-            <button onClick={() => editItem}>Edit Product</button>
+            <button>Edit Product</button>
             <button onClick={() => deleteItem(id)}>Delete</button>
         </div>
     )

@@ -26,7 +26,7 @@ function TestComp() {
   return (
     <>
       {slicedItems.map(item => (
-        <Item key={item.id} product={item} />
+        <Item key={item.id} product={item} deleteItem={deleteItem} />
       ))}
 
       {counter < items.length && (
