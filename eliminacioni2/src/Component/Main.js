@@ -4,29 +4,24 @@ import Item from './Items';
 
 function TestComp() {
 
-    const { items, addItem, deleteItem, editItem } = useContext(ProductContext);
+    const { items, deleteItem, editItem } = useContext(ProductContext);
 
     const [counter, setCounter] = useState(9);
 
-  
-
-    // Prikaz Loading spinnera ako su items prazan niz
     if (items.length === 0) {
-      return <div>Loading spinner...</div>;
+      return <div>Loading...</div>;
     }
 
-    // Izdvajanje prvih 9 elemenata
   const slicedItems = items.slice(0, counter);
 
   const handleLoadMore = () => {
     setCounter(prevCounter => prevCounter + 9);
   };
 
-
   return (
     <>
       {slicedItems.map(item => (
-        <Item key={item.id} product={item} deleteItem={deleteItem} />
+        <Item key={item.id} product={item} deleteItem={deleteItem} editItem={editItem} />
       ))}
 
       {counter < items.length && (

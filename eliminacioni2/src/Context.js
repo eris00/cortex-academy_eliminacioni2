@@ -58,7 +58,6 @@ const ProductProvider = ({ children }) => {
         });
         const data = await response.json();
         console.log("Deleted item ID:", data.id);
-        // Ažuriranje state-a nakon brisanja proizvoda, na primer:
         setItems(items.filter(item => item.id !== id));
     } catch (error) {
         console.error('Error deleting product:', error);
@@ -73,8 +72,6 @@ const ProductProvider = ({ children }) => {
         })
         .then(res => res.json())
         .then((data)  => {
-            // Ovde možete ažurirati items u centralnom store-u sa novim podacima proizvoda
-            // Na primer, možete kreirati novu listu items sa ažuriranim proizvodom i postaviti je u state
             const updatedItems = items.map(item => {
                 if (item.id === productId) {
                     return { ...item, ...newData };

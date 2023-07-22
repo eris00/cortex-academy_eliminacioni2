@@ -120,7 +120,6 @@ import {Link} from 'react-router-dom'
         placeholder="title"
       />
 
-      {/* Dodajte ostala input polja za ostale atribute */}
       <button type="submit">Add Product</button>
     </form>
     </>

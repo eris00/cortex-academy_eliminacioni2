@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-function Item({ product, deleteItem }) {
+function Item({ product, deleteItem, editItem }) {
 
     const {id, title, price, description, images } = product;
 
@@ -13,7 +13,7 @@ function Item({ product, deleteItem }) {
             <p>Description: {description}</p>
             <img src={images} />
             <Link to={`/product/${product.id}`}>View Details</Link>
-            <button>Edit Product</button>
+            <Link to={`/product/edit/${product.id}`}>Edit Product</Link>
             <button onClick={() => deleteItem(id)}>Delete</button>
         </div>
     )

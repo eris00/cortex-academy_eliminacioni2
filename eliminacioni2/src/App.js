@@ -1,5 +1,4 @@
 import logo from './logo.svg';
-import React, { useContext, useState, useEffect } from "react";
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import './App.css';
 import { ProductProvider } from "./Context";
@@ -9,10 +8,8 @@ import EditProductForm from './Component/EditProductForm';
 import ItemDetails from './Component/ItemDetails';
 
 function App() {
- 
 
   return (
-
     <> 
       <BrowserRouter>
         <ProductProvider>
@@ -26,16 +23,9 @@ function App() {
               <Route  path={"/product/edit/:id"} element={<EditProductForm />} />
           </Routes>
 
-          
-
         </ProductProvider>
       </BrowserRouter>
-
-      
-
     </>
-
-
   );
 }
 
