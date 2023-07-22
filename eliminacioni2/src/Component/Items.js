@@ -1,9 +1,9 @@
 import React from 'react'
-import ItemDetails from './ItemDetails';
+import {Link} from 'react-router-dom'
 
 function Item({ product }) {
 
-    const { id, title, price, description, images, deleteItem, editItem } = product;
+    const {id, title, price, description, images, deleteItem, editItem } = product;
 
     return (
         <div className="product-item">
@@ -12,9 +12,9 @@ function Item({ product }) {
             <p>Price: ${price}</p>
             <p>Description: {description}</p>
             <img src={images} />
-            <button>View Details</button>
-            <button onClick={(id) => editItem}>EditProduct</button>
-            <button onClick={(id) => deleteItem}>Delete</button>
+            <Link to={`/product/${product.id}`}>View Details</Link>
+            <button onClick={() => editItem}>Edit Product</button>
+            <button onClick={() => deleteItem(id)}>Delete</button>
         </div>
     )
 }
