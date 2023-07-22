@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const BASE_URL = 'https://dummyjson.com';
 
@@ -32,6 +33,9 @@ const ProductProvider = ({ children }) => {
     // CRUD funkcije
 
     const addItem = (product) => {
+
+        const newProduct = { ...product, id: uuidv4() };
+
         fetch(`${BASE_URL}/products/add`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -39,12 +43,11 @@ const ProductProvider = ({ children }) => {
         })
           .then((response) => response.json())
           .then((data) => {
-            // Ovdje možete dodati kod za ažuriranje items u centralnom store-u nakon što se proizvod doda na server
             console.log("Proizvod uspješno dodan:", data);
             setItems([...items, product]);
           })
           .catch((error) => {
-            console.error("Greška pri dodavanju proizvoda:", error);
+            console.error("Greška :", error);
           });
       };
 

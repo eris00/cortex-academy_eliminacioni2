@@ -1,6 +1,6 @@
 import { React, useContext, useState } from 'react'
 import { ProductContext } from '../Context'
-import ItemDetail from './Items';
+import Item from './Items';
 
 function TestComp() {
 
@@ -8,7 +8,7 @@ function TestComp() {
 
     const [counter, setCounter] = useState(9);
 
-    console.log(items);
+  
 
     // Prikaz Loading spinnera ako su items prazan niz
     if (items.length === 0) {
@@ -26,7 +26,7 @@ function TestComp() {
   return (
     <>
       {slicedItems.map(item => (
-        <ItemDetail key={item.id} product={item} />
+        <Item key={item.id} product={item} />
       ))}
 
       {counter < items.length && (
