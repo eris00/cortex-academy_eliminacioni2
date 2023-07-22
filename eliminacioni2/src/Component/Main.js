@@ -2,6 +2,7 @@ import { React, useContext, useState } from 'react'
 import { ProductContext } from '../Context'
 import Item from './Items';
 
+
 function TestComp() {
 
     const { items, deleteItem, editItem } = useContext(ProductContext);
@@ -21,7 +22,7 @@ function TestComp() {
   return (
     <>
       {slicedItems.map(item => (
-        <Item key={item.id} product={item} deleteItem={deleteItem} editItem={editItem} />
+        <Item className='singleItem' key={item.id} product={item} deleteItem={deleteItem} editItem={editItem} />
       ))}
 
       {counter < items.length && (
