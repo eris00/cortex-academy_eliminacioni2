@@ -11,7 +11,7 @@ function Item({ product, deleteItem, editItem }) {
             <h3>{title}</h3>
             <p>Price: ${price}</p>
             <p>Description: {description}</p>
-            <img src={images} />
+            <img src={images[0]} />
             <Link to={`/product/${product.id}`}>View Details</Link>
             <Link to={`/product/edit/${product.id}`}>Edit Product</Link>
             <button onClick={() => deleteItem(id)}>Delete</button>

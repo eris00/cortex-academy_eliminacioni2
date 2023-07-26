@@ -25,13 +25,6 @@ const ProductProvider = ({ children }) => {
         getItems();
       }, []);
 
-    // //   logovanje itema
-    // useEffect(() = > {
-    //     console.log(items);
-    // }, [items]);
-
-    // CRUD funkcije
-
     const addItem = (product) => {
 
         const newProduct = { ...product, id: uuidv4() };
