@@ -4,6 +4,7 @@ import { useParams  } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import EditProductForm from './EditProductForm';
 
+
 function EditProduct() {
 
     const { id } = useParams();
@@ -23,6 +24,11 @@ function EditProduct() {
         editItem(product.id, newProductData);
         navigate('/');
     };
+
+    if (!newProductData) {
+      return <div>Loading...</div>;
+    }
+  
 
   return (
     <>

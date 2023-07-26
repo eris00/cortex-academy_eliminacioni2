@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useParams  } from 'react-router-dom';
 import { ProductContext } from '../Context';
+import './ProductDetails.css';
 
 function ProductDetails() {
 
@@ -14,18 +15,20 @@ function ProductDetails() {
 
   return (
     <> 
-      <h1>Item Details</h1>
-      <div>
-        <p>Brand: {product.brand}</p>
-        <p>Category: {product.category}</p>
-        <p>Description: {product.description}</p>
-        <p>Discount Percentage: {product.discountPercentage}</p>
-        <p>ID: {product.id}</p>
-        <p>Price: {product.price}</p>
-        <p>Rating: {product.rating}</p>
-        <p>Stock: {product.stock}</p>
-        <img src={product.thumbnail} alt="Thumbnail" />
-        <p>Title: {product.title}</p>
+      <h1>{product.title}</h1>
+      <div className='container'>
+      <img src={product.thumbnail} alt="Thumbnail" />
+        <div className='information'>
+          <p><strong>Brand:</strong> {product.brand}</p>
+          <p><strong>Category:</strong> {product.category}</p>
+          <p><strong>Description:</strong> {product.description}</p>
+          <p><strong>Discount Percentage:</strong> {product.discountPercentage}</p>
+          <p><strong>ID:</strong> {product.id}</p>
+          <p><strong>Price:</strong> {product.price}</p>
+          <p><strong>Rating:</strong> {product.rating}</p>
+          <p><strong>Stock:</strong> {product.stock}</p>
+          <p><strong>Title:</strong> {product.title}</p>
+        </div>
       </div>
     </>
   )

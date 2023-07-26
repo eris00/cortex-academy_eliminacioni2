@@ -13,11 +13,11 @@ import AddProductForm from './AddProductForm';
       brand: '',
       category: '',
       description: '',
-      discountPercentage: 0,
+      discountPercentage: '',
       images: [],
-      price: 0,
-      rating: 0,
-      stock: 0,
+      price: '',
+      rating: '',
+      stock: '',
       thumbnail: '',
       title: ''
     });
@@ -29,15 +29,20 @@ import AddProductForm from './AddProductForm';
 
     const handleSubmit = (e) => {
       e.preventDefault();
+
+      if (formData.brand.trim().length === 0 || formData.category.trim().length === 0 || formData.description.trim().length === 0 || formData.discountPercentage.trim().length === 0 || formData.price.trim().length === 0 || formData.rating.trim().length === 0 || formData.stock.trim().length === 0 || formData.thumbnail.trim().length === 0 || formData.title.trim().length === 0) {
+        return;
+      }
+
       addItem(formData);
       setFormData({brand: '',
       category: '',
       description: '',
-      discountPercentage: 0,
+      discountPercentage: '',
       images: [],
-      price: 0,
-      rating: 0,
-      stock: 0,
+      price: '',
+      rating: '',
+      stock: '',
       thumbnail: '',
       title: ''})
       navigate('/');
@@ -45,15 +50,7 @@ import AddProductForm from './AddProductForm';
 
 
   return (
-
-    <> 
-    
-    <Link to="/">Go back</Link>
-
     <AddProductForm handleSubmit={handleSubmit} handleChange={handleChange} formData={formData}/>
-
-
-    </>
   )
 }
 
