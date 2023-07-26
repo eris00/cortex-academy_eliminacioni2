@@ -1,23 +1,21 @@
 import React, { useContext } from 'react'
-import { Link, useParams  } from 'react-router-dom';
+import { useParams  } from 'react-router-dom';
 import { ProductContext } from '../Context';
 
 function ProductDetails() {
 
   const { id } = useParams();
-
   const { items } = useContext(ProductContext);
-
   const product = items.find(item => item.id == id);
 
+  if (!product) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <> 
-      <Link to="/">Go back</Link>
-      
-      <div>ItemDetails</div>
+      <h1>Item Details</h1>
       <div>
-        <h2>Product Details</h2>
         <p>Brand: {product.brand}</p>
         <p>Category: {product.category}</p>
         <p>Description: {product.description}</p>

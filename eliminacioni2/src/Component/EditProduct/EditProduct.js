@@ -27,8 +27,7 @@ function EditProduct() {
   return (
     <>
 
-        <EditProductForm handleSubmit={handleSubmit} handleChange={handleChange} newProductData={newProductData} />
-
+      <EditProductForm handleSubmit={handleSubmit} handleChange={handleChange} newProductData={newProductData} />
 
     </>
 

@@ -7,6 +7,7 @@ import AddProduct from './Component/AddProduct/AddProduct';
 import EditProduct from './Component/EditProduct/EditProduct';
 import ProductDetails from './Component/ProductDetails';
 import Header from './Layout/Header';
+import Footer from './Layout/Footer';
 
 function App() {
 
@@ -15,7 +16,6 @@ function App() {
       <BrowserRouter>
         <ProductProvider>
 
-          {/* <Link to="/product/add">Add Product</Link> */}
           <Header />
 
           <Routes>
@@ -24,6 +24,8 @@ function App() {
               <Route  path={"/product/:id"} element={<ProductDetails />} />
               <Route  path={"/product/edit/:id"} element={<EditProduct />} />
           </Routes>
+
+          <Footer />
 
         </ProductProvider>
       </BrowserRouter>

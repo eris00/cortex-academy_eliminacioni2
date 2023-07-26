@@ -1,21 +1,30 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import './ProductItem.css';
 
-function ProductItem({ product, deleteItem, editItem }) {
+function ProductItem({ product, deleteItem }) {
 
     const {id, title, price, description, images } = product;
 
+    const truncateTitle = (text, maxLength) => {
+        if (text.length <= maxLength) return text;
+        return text.substring(0, maxLength) + '...';
+      };
+
     return (
-        <div className="product-item">
-            <h1>Proizvod</h1>
-            <h3>{title}</h3>
-            <p>Price: ${price}</p>
-            <p>Description: {description}</p>
-            <img src={images[0]} />
-            <Link to={`/product/${product.id}`}>View Details</Link>
-            <Link to={`/product/edit/${product.id}`}>Edit Product</Link>
-            <button onClick={() => deleteItem(id)}>Delete</button>
-        </div>
+        <> 
+            <div className="product-item">
+                <h3>{truncateTitle(title, 26)}</h3>
+                <img src={product.thumbnail} />
+                <p>Price: ${price}</p>
+                <p>Description: {description}</p>
+                <div className='button-container'>
+                    <Link to={`/product/${product.id}`}>View Details</Link>
+                    <Link to={`/product/edit/${product.id}`}>Edit Product</Link>
+                    <button onClick={() => deleteItem(id)}>Delete</button>
+                </div>
+            </div>
+        </>
     )
 }
 
