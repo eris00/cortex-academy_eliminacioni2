@@ -1,10 +1,12 @@
 import React, { useState, useContext  } from 'react';
 import { ProductContext } from '../Context'
 import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
   function AddProductForm () {
 
     const { items, setItems, addItem } = useContext(ProductContext);
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState ({
       brand: '',
@@ -37,6 +39,7 @@ import {Link} from 'react-router-dom'
       stock: 0,
       thumbnail: '',
       title: ''})
+      navigate('/');
     };
 
 
