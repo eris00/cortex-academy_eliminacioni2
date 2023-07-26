@@ -2,10 +2,11 @@ import logo from './logo.svg';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import './App.css';
 import { ProductProvider } from "./Context";
-import Main from './Component/Main';
-import AddProductForm from './Component/AddProductForm';
-import EditProductForm from './Component/EditProductForm';
-import ItemDetails from './Component/ItemDetails';
+import ProductList from './Component/ProductList';
+import AddProduct from './Component/AddProduct/AddProduct';
+import EditProduct from './Component/EditProduct/EditProduct';
+import ProductDetails from './Component/ProductDetails';
+import Header from './Layout/Header';
 
 function App() {
 
@@ -14,13 +15,14 @@ function App() {
       <BrowserRouter>
         <ProductProvider>
 
-          <Link to="/product/add">Add Product</Link>
+          {/* <Link to="/product/add">Add Product</Link> */}
+          <Header />
 
           <Routes>
-              <Route  path={"/"} element={<Main />} />
-              <Route  path={"/product/add"} element={<AddProductForm />} />
-              <Route  path={"/product/:id"} element={<ItemDetails />} />
-              <Route  path={"/product/edit/:id"} element={<EditProductForm />} />
+              <Route  path={"/"} element={<ProductList />} />
+              <Route  path={"/product/add"} element={<AddProduct />} />
+              <Route  path={"/product/:id"} element={<ProductDetails />} />
+              <Route  path={"/product/edit/:id"} element={<EditProduct />} />
           </Routes>
 
         </ProductProvider>

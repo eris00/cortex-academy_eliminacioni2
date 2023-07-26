@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link, useParams  } from 'react-router-dom';
 import { ProductContext } from '../Context';
 
-function ItemDetails() {
+function ProductDetails() {
 
   const { id } = useParams();
 
@@ -14,6 +14,7 @@ function ItemDetails() {
   return (
     <> 
       <Link to="/">Go back</Link>
+      
       <div>ItemDetails</div>
       <div>
         <h2>Product Details</h2>
@@ -32,4 +33,4 @@ function ItemDetails() {
   )
 }
 
-export default ItemDetails
+export default ProductDetails

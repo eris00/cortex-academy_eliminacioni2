@@ -42,7 +42,7 @@ const ProductProvider = ({ children }) => {
           .catch((error) => {
             console.error("Greška :", error);
           });
-      };
+    };
 
     const deleteItem = async (id) => {
     try {

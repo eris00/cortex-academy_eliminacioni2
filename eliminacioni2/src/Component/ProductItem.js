@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-function Item({ product, deleteItem, editItem }) {
+function ProductItem({ product, deleteItem, editItem }) {
 
     const {id, title, price, description, images } = product;
 
@@ -19,4 +19,4 @@ function Item({ product, deleteItem, editItem }) {
     )
 }
 
-export default Item
+export default ProductItem
