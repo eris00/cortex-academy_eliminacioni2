@@ -12,11 +12,13 @@ function ProductList() {
       return <div>Loading...</div>;
     }
 
-  const slicedItems = items.slice(0, counter);
+    const reversedItems = [...items].reverse();
 
-  const handleLoadMore = () => {
-    setCounter(prevCounter => prevCounter + 9);
-  };
+    const slicedItems = reversedItems.slice(0, counter);
+
+    const handleLoadMore = () => {
+      setCounter(prevCounter => prevCounter + 9);
+    };
 
   return (
     <div className='product-list-wrapper'>

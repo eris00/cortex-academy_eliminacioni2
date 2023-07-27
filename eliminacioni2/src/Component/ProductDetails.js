@@ -14,8 +14,6 @@ function ProductDetails() {
     setProduct(foundProduct)
   }, [items, id])
 
-  // const product = items.find(item => item.id == id);
-
   if (!product) {
     return <div>Loading...</div>;
   }

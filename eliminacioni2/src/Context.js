@@ -27,10 +27,12 @@ const ProductProvider = ({ children }) => {
 
     const addItem = (product) => {
 
+        const newProduct = { ...product, id: uuidv4() };
+
         fetch(`${BASE_URL}/products/add`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(product),
+          body: JSON.stringify(newProduct),
         })
           .then((response) => response.json())
           .then((data) => {
@@ -47,7 +49,6 @@ const ProductProvider = ({ children }) => {
         method: "DELETE",
         });
         const data = await response.json();
-        console.log("Deleted item ID:", data.id);
         setItems(items.filter(item => item.id !== id));
     } catch (error) {
         console.error('Error deleting product:', error);
