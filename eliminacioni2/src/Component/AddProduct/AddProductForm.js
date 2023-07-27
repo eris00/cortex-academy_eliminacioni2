@@ -13,70 +13,70 @@ function AddProductForm({handleSubmit, handleChange, formData}) {
             name="brand"
             value={formData.brand}
             onChange={handleChange}
-            placeholder="Brand"
+            placeholder="*Brand"
           />
           <input
             type="text"
             name="category"
             value={formData.category}
             onChange={handleChange}
-            placeholder="Category"
+            placeholder="*Category"
           />
           <input
             type="text"
             name="description"
             value={formData.description}
             onChange={handleChange}
-            placeholder="Description"
+            placeholder="*Description"
           />
           <input
             type="number"
             name="discountPercentage"
             value={formData.discountPercentage}
             onChange={handleChange}
-            placeholder="discountPercentage"
+            placeholder="*Discount Percentage"
           />
           <input
             type="text"
             name="images"
             value={formData.images}
             onChange={handleChange}
-            placeholder="images"
+            placeholder="Image"
           />
           <input
             type="number"
             name="price"
             value={formData.price}
             onChange={handleChange}
-            placeholder="price"
+            placeholder="*Price"
           />
           <input
             type="number"
             name="rating"
             value={formData.rating}
             onChange={handleChange}
-            placeholder="rating"
+            placeholder="*Rating"
           />
           <input
             type="number"
             name="stock"
             value={formData.stock}
             onChange={handleChange}
-            placeholder="stock"
+            placeholder="*Stock"
           />
           <input
             type="text"
             name="thumbnail"
             value={formData.thumbnail}
             onChange={handleChange}
-            placeholder="thumbnail"
+            placeholder="Thumbnail"
           />
           <input
             type="text"
             name="title"
             value={formData.title}
             onChange={handleChange}
-            placeholder="title"
+            placeholder="*Title"
           />
 
           <button type="submit">Add Product</button>

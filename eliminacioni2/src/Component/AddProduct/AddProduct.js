@@ -6,7 +6,7 @@ import AddProductForm from './AddProductForm';
 
   function AddProduct () {
 
-    const { items, setItems, addItem } = useContext(ProductContext);
+    const { addItem } = useContext(ProductContext);
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState ({
@@ -30,7 +30,7 @@ import AddProductForm from './AddProductForm';
     const handleSubmit = (e) => {
       e.preventDefault();
 
-      if (formData.brand.trim().length === 0 || formData.category.trim().length === 0 || formData.description.trim().length === 0 || formData.discountPercentage.trim().length === 0 || formData.price.trim().length === 0 || formData.rating.trim().length === 0 || formData.stock.trim().length === 0 || formData.thumbnail.trim().length === 0 || formData.title.trim().length === 0) {
+      if (formData.brand.trim().length === 0 || formData.category.trim().length === 0 || formData.description.trim().length === 0 || formData.discountPercentage.trim().length === 0 || formData.price.trim().length === 0 || formData.rating.trim().length === 0 || formData.stock.trim().length === 0 || formData.title.trim().length === 0) {
         return;
       }
 

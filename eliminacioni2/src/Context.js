@@ -27,8 +27,6 @@ const ProductProvider = ({ children }) => {
 
     const addItem = (product) => {
 
-        const newProduct = { ...product, id: uuidv4() };
-
         fetch(`${BASE_URL}/products/add`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -36,11 +34,10 @@ const ProductProvider = ({ children }) => {
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log("Proizvod uspješno dodan:", data);
-            setItems([...items, product]);
+            setItems([...items, data]);
           })
           .catch((error) => {
-            console.error("Greška :", error);
+            console.error("Error: ", error);
           });
     };
 

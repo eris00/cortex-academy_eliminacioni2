@@ -4,7 +4,7 @@ import './ProductItem.css';
 
 function ProductItem({ product, deleteItem }) {
 
-    const {id, title, price, description, images } = product;
+    const {id, title, price, description } = product;
 
     const truncateText = (text, maxLength) => {
         if (text.length <= maxLength) return text;

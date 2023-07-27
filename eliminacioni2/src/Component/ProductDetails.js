@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams  } from 'react-router-dom';
 import { ProductContext } from '../Context';
 import './ProductDetails.css';
@@ -7,7 +7,14 @@ function ProductDetails() {
 
   const { id } = useParams();
   const { items } = useContext(ProductContext);
-  const product = items.find(item => item.id == id);
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    const foundProduct = items.find(item => item.id == id);
+    setProduct(foundProduct)
+  }, [items, id])
+
+  // const product = items.find(item => item.id == id);
 
   if (!product) {
     return <div>Loading...</div>;

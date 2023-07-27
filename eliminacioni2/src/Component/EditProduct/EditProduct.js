@@ -1,4 +1,4 @@
-import { React, useState, useContext } from 'react'
+import { React, useState, useEffect, useContext } from 'react'
 import { ProductContext } from "../../Context";
 import { useParams  } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +12,14 @@ function EditProduct() {
     const product = items.find(item => item.id == id);
     const navigate = useNavigate();
 
-    const [newProductData, setNewProductData] = useState(product);
+    const [newProductData, setNewProductData] = useState({});
+
+    useEffect(() => {
+      // Postavljamo newProductData kada je product definisan
+      if (product) {
+        setNewProductData(product);
+      }
+    }, [product]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -24,11 +31,6 @@ function EditProduct() {
         editItem(product.id, newProductData);
         navigate('/');
     };
-
-    if (!newProductData) {
-      return <div>Loading...</div>;
-    }
-  
 
   return (
     <>
