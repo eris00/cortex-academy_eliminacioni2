@@ -20,6 +20,7 @@ function ProductList() {
       setCounter(prevCounter => prevCounter + 9);
     };
 
+
   return (
     <div className='product-list-wrapper'>
       <h1>Available Products</h1>
